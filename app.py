@@ -79,8 +79,11 @@ if re_enter_password != "":
     else:
         st.error('password do not match')
 
-if st.button(label='Generate password'):
-    st.subheader(f"Password Generated! `{password}`")
+button_disable = not(password and match)
+
+if st.button(label='Generate Password', disabled=button_disable):
+    if button_disable == False:
+        st.subheader(f"Password generated: {password}")
 
 st.write('-------------------------------------------------------')
 
