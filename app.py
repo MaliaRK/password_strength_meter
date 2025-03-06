@@ -76,10 +76,11 @@ match = bcrypt.checkpw(re_enter_bytes, hashed_password)
 if re_enter_password != "":
     if match:
         st.success('password matched!')
-        st.subheader(f"Password Generated! `{password}`")
     else:
         st.error('password do not match')
 
+if st.button(label='Generate password'):
+    st.subheader(f"Password Generated! `{password}`")
 
 st.write('-------------------------------------------------------')
 
