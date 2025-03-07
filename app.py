@@ -9,7 +9,6 @@ st.markdown(
     <style>
     .stApp {{
         background-color: whitesmoke;
-        margin: 0 20%;
     }}
 
     .stSlider > div > div > div > div > div {{
