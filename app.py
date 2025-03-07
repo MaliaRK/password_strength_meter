@@ -1,6 +1,6 @@
+import streamlit as st
 import random
 import string
-import streamlit as st
 
 st.set_page_config(page_title="Password_Strength_Meter", page_icon="🔐", layout="wide")
 
@@ -86,7 +86,6 @@ def generate_password(length, uppercase, lowercase, digits, special_characters):
         unsafe_allow_html=True
     )
 
-
     st.progress(int(total))
     st.write(f"Password Strength: {int(total)}%")
 
@@ -95,3 +94,20 @@ def generate_password(length, uppercase, lowercase, digits, special_characters):
 if st.button(label="Generate Password"):
     password = generate_password(length, uppercase, lowercase, digits, special_characters)
     st.write(f"Your generated password is: {password}")
+
+    st.code(password, language="")
+
+    st.markdown(f"""
+        <button class="copy" onclick="navigator.clipboard.writeText('{password}').then(() => alert('Copied!'))">
+            .
+        </button>
+
+        <style>
+        .copy {{
+            border: None;
+            padding: 0;
+            background-color: whitesmoke;
+            color: whitesmoke;
+        }}
+        </style>
+    """, unsafe_allow_html=True)
