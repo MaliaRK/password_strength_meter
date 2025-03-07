@@ -56,7 +56,7 @@ def generate_password(length, uppercase, lowercase, digits, special_characters):
     if uppercase and lowercase and digits and special_characters:
         st.success("Strong password")
     elif uppercase and lowercase and digits:
-        st.warning("Moderate password.. add special_characters")
+        st.warning("Moderate password.. add special characters")
     elif uppercase and lowercase and special_characters:
         st.warning("Common password.. add digits")
     elif not uppercase and not lowercase and not digits and not special_characters:
@@ -97,17 +97,15 @@ if st.button(label="Generate Password"):
 
     st.code(password, language="")
 
-    st.markdown(f"""
-        <button class="copy" onclick="navigator.clipboard.writeText('{password}').then(() => alert('Copied!'))">
-            .
-        </button>
-
-        <style>
-        .copy {{
-            border: None;
-            padding: 0;
-            background-color: whitesmoke;
-            color: whitesmoke;
-        }}
-        </style>
-    """, unsafe_allow_html=True)
+    st.markdown(
+    f"""
+    <style>
+    .copy {{
+        border: none;
+    }}
+    </style>
+    <button class="copy" onclick="navigator.clipboard.writeText('{password}').then(() => alert('Copied!'))">
+    </button>
+    """,
+    unsafe_allow_html=True
+    )
